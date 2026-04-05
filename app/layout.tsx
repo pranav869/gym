@@ -1,9 +1,6 @@
 import type { Metadata } from 'next'
-import dynamic from 'next/dynamic'
 import './globals.css'
 import SmoothScroll from '@/components/SmoothScroll'
-
-const CustomCursor = dynamic(() => import('@/components/CustomCursor'), { ssr: false })
 
 export const metadata: Metadata = {
   title: 'APEX GYM — Push Your Limits',
@@ -28,7 +25,6 @@ export default function RootLayout({
       </head>
       <body className="bg-zinc-950 text-zinc-50 antialiased">
         <SmoothScroll>
-          <CustomCursor />
           {children}
         </SmoothScroll>
       </body>
