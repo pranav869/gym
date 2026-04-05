@@ -49,13 +49,14 @@ export default function UrgencyPopup() {
             className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60]"
           />
 
-          {/* Modal */}
+          {/* Modal — centering wrapper is static; Framer only animates scale/opacity */}
+          <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 pointer-events-none">
           <motion.div
-            initial={{ opacity: 0, scale: 0.85, y: 40 }}
+            initial={{ opacity: 0, scale: 0.88, y: 24 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.85, y: 40 }}
-            transition={{ type: 'spring', stiffness: 280, damping: 24 }}
-            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[70] w-full max-w-md mx-4"
+            exit={{ opacity: 0, scale: 0.88, y: 24 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 26 }}
+            className="w-full max-w-md pointer-events-auto"
           >
             <div className="bg-zinc-900 border border-orange-500/40 rounded-3xl p-8 shadow-2xl shadow-orange-500/20 relative overflow-hidden">
               {/* Glow */}
@@ -134,6 +135,7 @@ export default function UrgencyPopup() {
               </p>
             </div>
           </motion.div>
+          </div>
         </>
       )}
     </AnimatePresence>
