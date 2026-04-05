@@ -6,7 +6,6 @@ import {
   AnimatePresence,
   useScroll,
   useTransform,
-  useSpring,
 } from 'framer-motion'
 import {
   Phone,
@@ -69,11 +68,8 @@ export default function Hero() {
   })
 
   /* ── Layer 1 – Background: zoom forward + slow parallax ── */
-  const rawBgScale = useTransform(scrollYProgress, [0, 1], [1.0, 1.28])
-  const rawBgY     = useTransform(scrollYProgress, [0, 1], ['0%', '-22%'])
-  /* Spring smoothing for silky motion */
-  const bgScale = useSpring(rawBgScale, { stiffness: 80, damping: 25 })
-  const bgY     = useSpring(rawBgY,     { stiffness: 80, damping: 25 })
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1.0, 1.28])
+  const bgY     = useTransform(scrollYProgress, [0, 1], ['0%', '-22%'])
 
   /* ── Layer 2 – Mid glow: medium drift ── */
   const midY = useTransform(scrollYProgress, [0, 1], ['0px', '-80px'])
