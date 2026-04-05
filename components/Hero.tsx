@@ -1,8 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Phone, ArrowRight, ChevronDown, ShieldCheck, Star, Users, Award } from 'lucide-react'
+import dynamic from 'next/dynamic'
+
+/* Three.js canvas – disabled on SSR (WebGL is browser-only) */
+const GymScene = dynamic(() => import('./three/GymScene'), { ssr: false })
 
 const WHATSAPP_NUMBER = '15105551234'
 const WHATSAPP_MESSAGE = encodeURIComponent('Hi, I want a free trial at APEX GYM! 💪')
@@ -27,31 +31,55 @@ const trustBadges = [
 export default function Hero() {
   const [phone, setPhone] = useState('')
   const [submitted, setSubmitted] = useState(false)
+  /* mouse position shared with the 3D scene */
+  const mouse = useRef<[number, number]>([0, 0])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (phone.trim().length >= 8) setSubmitted(true)
   }
 
+  const onMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    const { clientX, clientY } = e
+    mouse.current = [
+      (clientX / window.innerWidth  - 0.5) * 2,
+      (clientY / window.innerHeight - 0.5) * 2,
+    ]
+  }
+
   return (
     <>
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pb-20 sm:pb-0">
-        {/* Background */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1920&q=80"
-            alt="Gym background"
-            className="w-full h-full object-cover"
+      <section
+        id="hero"
+        className="relative min-h-screen flex items-center overflow-hidden pb-20 sm:pb-0"
+        onMouseMove={onMouseMove}
+      >
+        {/* ── Dark gradient + subtle grid background ── */}
+        <div className="absolute inset-0 z-0 bg-zinc-950">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_50%,rgba(249,115,22,0.08)_0%,transparent_65%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_80%,rgba(59,130,246,0.06)_0%,transparent_60%)]" />
+          {/* subtle dot grid */}
+          <div
+            className="absolute inset-0 opacity-[0.15]"
+            style={{
+              backgroundImage: 'radial-gradient(circle, #f9731622 1px, transparent 1px)',
+              backgroundSize: '40px 40px',
+            }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/85 via-zinc-950/75 to-zinc-950" />
-          <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/50 via-transparent to-zinc-950/50" />
         </div>
 
-        {/* Glow orbs */}
-        <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-orange-500/10 rounded-full blur-3xl pointer-events-none animate-pulse" />
-        <div className="absolute bottom-1/3 left-1/4 w-56 h-56 bg-orange-600/[0.08] rounded-full blur-3xl pointer-events-none animate-pulse" style={{ animationDelay: '1.2s' }} />
+        {/* ── 3D Canvas (right side) – absolute fill on mobile, right half on desktop ── */}
+        <div className="absolute inset-0 sm:left-1/2 z-0 opacity-90 pointer-events-none sm:pointer-events-auto">
+          <GymScene mouse={mouse} />
+        </div>
 
-        <div className="relative z-10 w-full max-w-3xl mx-auto px-4 sm:px-6 text-center pt-24">
+        {/* ── Glow orbs ── */}
+        <div className="absolute top-1/3 right-1/3 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl pointer-events-none animate-pulse" />
+        <div className="absolute bottom-1/3 left-1/4 w-56 h-56 bg-blue-600/[0.07] rounded-full blur-3xl pointer-events-none animate-pulse" style={{ animationDelay: '1.4s' }} />
+
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16">
+        {/* text content lives in the LEFT half on md+ */}
+        <div className="max-w-2xl lg:max-w-xl xl:max-w-2xl text-left sm:text-center md:text-left">
 
           {/* Urgency pill */}
           <motion.div
@@ -231,12 +259,14 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Scroll hint */}
+        </div>{/* close max-w-7xl */}
+
+        {/* Scroll hint – absolute so it escapes the flow */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.6 }}
-          className="absolute bottom-10 sm:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-zinc-700 hidden sm:flex"
+          className="absolute bottom-10 sm:bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-1.5 text-zinc-700 hidden sm:flex"
         >
           <motion.div
             animate={{ y: [0, 7, 0] }}
