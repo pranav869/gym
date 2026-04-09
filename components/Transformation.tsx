@@ -6,7 +6,7 @@ import { ArrowRight, Trophy, TrendingUp } from 'lucide-react'
 
 const transformations = [
   {
-    name: 'Ryan M.',
+    name: 'Ryan Mohan raj M.',
     duration: '5 months',
     loss: '32 lbs',
     stat: 'Fat Loss',
