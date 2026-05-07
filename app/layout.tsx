@@ -3,9 +3,9 @@ import './globals.css'
 import SmoothScroll from '@/components/SmoothScroll'
 
 export const metadata: Metadata = {
-  title: 'APEX GYM — Push Your Limits',
-  description: 'Premium gym memberships, elite trainers, and world-class facilities. Join APEX GYM today and redefine your limits.',
-  keywords: 'gym, fitness, membership, personal training, workout, HIIT, CrossFit',
+  title: 'Apex Gym — Best Gym in Kolathur, Chennai',
+  description: 'Apex Gym at Intuc Nagar Main Road, Kathirvedu, Chennai 600066. Premium gym memberships, elite trainers & world-class facilities. Join today — first week free!',
+  keywords: 'gym in kolathur, gym in chennai, apex gym, best gym kolathur, fitness center chennai, personal training chennai, gym kathirvedu, gym intuc nagar',
 }
 
 export default function RootLayout({
@@ -23,7 +23,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-zinc-950 text-zinc-50 antialiased">
+      <body className="bg-gray-50 text-gray-900 antialiased">
         <SmoothScroll>
           {children}
         </SmoothScroll>
