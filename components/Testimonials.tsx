@@ -63,7 +63,7 @@ const testimonials = [
     role: 'Pro member · 11 months',
     avatar: 'https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?auto=format&fit=crop&w=120&q=80',
     rating: 5,
-    text: 'The HIIT classes here are next level. Coach Alex pushes you to your absolute edge but in the safest way. Down 20 lbs, up 15 lbs of muscle. My transformation photos speak for themselves.',
+    text: 'The HIIT classes here are next level. Coach Pranav Eashwaran pushes you to your absolute edge but in the safest way. Down 20 lbs, up 15 lbs of muscle. My transformation photos speak for themselves.',
     highlight: 'Incredible body recomposition',
     result: '-20 lbs, +15 lbs muscle',
     verified: true,

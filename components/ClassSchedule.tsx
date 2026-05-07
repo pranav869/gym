@@ -24,9 +24,9 @@ const schedule: Record<string, Array<{
   category: string
 }>> = {
   Mon: [
-    { time: '06:00', name: 'Morning HIIT', trainer: 'Alex Carter', duration: '45 min', intensity: 'High', spots: 3, category: 'HIIT' },
+    { time: '06:00', name: 'Morning HIIT', trainer: 'Pranav Eashwaran G', duration: '45 min', intensity: 'High', spots: 3, category: 'HIIT' },
     { time: '09:00', name: 'Power Yoga', trainer: 'Priya Sharma', duration: '60 min', intensity: 'Low', spots: 12, category: 'Yoga' },
-    { time: '12:00', name: 'Strength & Conditioning', trainer: 'Marcus Webb', duration: '55 min', intensity: 'High', spots: 8, category: 'Strength' },
+    { time: '12:00', name: 'Strength & Conditioning', trainer: 'Pranav Eashwaran G', duration: '55 min', intensity: 'High', spots: 8, category: 'Strength' },
     { time: '18:00', name: 'Evening CrossFit', trainer: 'Jordan Lee', duration: '60 min', intensity: 'High', spots: 0, category: 'CrossFit' },
     { time: '20:00', name: 'Spin Cycling', trainer: 'Nadia Torres', duration: '45 min', intensity: 'Medium', spots: 5, category: 'Cycling' },
   ],
@@ -40,11 +40,11 @@ const schedule: Record<string, Array<{
     { time: '07:00', name: 'Morning Yoga', trainer: 'Priya Sharma', duration: '60 min', intensity: 'Low', spots: 20, category: 'Yoga' },
     { time: '12:00', name: 'Lunchtime HIIT', trainer: 'Nadia Torres', duration: '30 min', intensity: 'High', spots: 7, category: 'HIIT' },
     { time: '17:30', name: 'CrossFit WOD', trainer: 'Jordan Lee', duration: '60 min', intensity: 'High', spots: 0, category: 'CrossFit' },
-    { time: '19:00', name: 'Functional Strength', trainer: 'Marcus Webb', duration: '55 min', intensity: 'Medium', spots: 9, category: 'Strength' },
+    { time: '19:00', name: 'Functional Strength', trainer: 'Pranav Eashwaran G', duration: '55 min', intensity: 'Medium', spots: 9, category: 'Strength' },
     { time: '20:30', name: 'Evening Spin', trainer: 'Alex Carter', duration: '45 min', intensity: 'Medium', spots: 11, category: 'Cycling' },
   ],
   Thu: [
-    { time: '06:00', name: 'HIIT & Core', trainer: 'Alex Carter', duration: '45 min', intensity: 'High', spots: 5, category: 'HIIT' },
+    { time: '06:00', name: 'HIIT & Core', trainer: 'Pranav Eashwaran G', duration: '45 min', intensity: 'High', spots: 5, category: 'HIIT' },
     { time: '09:30', name: 'Restorative Yoga', trainer: 'Priya Sharma', duration: '75 min', intensity: 'Low', spots: 18, category: 'Yoga' },
     { time: '18:00', name: 'Boxing Fundamentals', trainer: 'Marcus Webb', duration: '60 min', intensity: 'Medium', spots: 8, category: 'Boxing' },
     { time: '19:30', name: 'Strength Circuit', trainer: 'Nadia Torres', duration: '50 min', intensity: 'High', spots: 3, category: 'Strength' },
@@ -52,12 +52,12 @@ const schedule: Record<string, Array<{
   Fri: [
     { time: '06:00', name: 'CrossFit Friday', trainer: 'Jordan Lee', duration: '60 min', intensity: 'High', spots: 1, category: 'CrossFit' },
     { time: '11:00', name: 'Mindful Yoga', trainer: 'Priya Sharma', duration: '60 min', intensity: 'Low', spots: 22, category: 'Yoga' },
-    { time: '17:00', name: 'Power HIIT', trainer: 'Alex Carter', duration: '45 min', intensity: 'High', spots: 4, category: 'HIIT' },
+    { time: '17:00', name: 'Power HIIT', trainer: 'Pranav Eashwaran G', duration: '45 min', intensity: 'High', spots: 4, category: 'HIIT' },
     { time: '19:00', name: 'Spin Party', trainer: 'Nadia Torres', duration: '45 min', intensity: 'Medium', spots: 6, category: 'Cycling' },
   ],
   Sat: [
     { time: '08:00', name: 'Weekend Warrior HIIT', trainer: 'Marcus Webb', duration: '60 min', intensity: 'High', spots: 0, category: 'HIIT' },
-    { time: '10:00', name: 'Olympic Lifting Workshop', trainer: 'Alex Carter', duration: '90 min', intensity: 'High', spots: 5, category: 'Strength' },
+    { time: '10:00', name: 'Olympic Lifting Workshop', trainer: 'Pranav Eashwaran G', duration: '90 min', intensity: 'High', spots: 5, category: 'Strength' },
     { time: '12:00', name: 'CrossFit Competition Prep', trainer: 'Jordan Lee', duration: '75 min', intensity: 'High', spots: 7, category: 'CrossFit' },
     { time: '15:00', name: 'Saturday Yoga', trainer: 'Priya Sharma', duration: '60 min', intensity: 'Low', spots: 16, category: 'Yoga' },
   ],
